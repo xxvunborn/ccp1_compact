@@ -5,59 +5,59 @@
 std::vector<int> PublicBinary;
 
 void ToBinary(int n) {
-  if (n / 2 != 0) {
-    ToBinary(n / 2);
-  }
-  PublicBinary.push_back(n % 2);
-  //printf("%d", n % 2);
+    if (n / 2 != 0) {
+        ToBinary(n / 2);
+    }
+    PublicBinary.push_back(n % 2);
+    //printf("%d", n % 2);
 }
 
 int ToDecimal(std::vector<int> binary){
-  int decimal=0;
-  int value=0;
-  int h = binary.size()-1;
-  for(auto i = binary.begin(); i!= binary.end() ; ++i){
-    value = pow(2,h);
-    if(*i == 1){
-      decimal = decimal + value;
+    int decimal=0;
+    int value=0;
+    int h = binary.size()-1;
+    for(auto i = binary.begin(); i!= binary.end() ; ++i){
+        value = pow(2,h);
+        if(*i == 1){
+            decimal = decimal + value;
+        }
+        h--;
     }
-    h--;
-  }
 
-  return decimal;
+    return decimal;
 }
 
 std::vector<int> ToUnary(int n){
 
-  std::vector<int> binary;
+    std::vector<int> binary;
 
-  while(n>0){
-    binary.push_back(1);
-    n--;
-  }
-  binary.push_back(0);
+    while(n>0){
+        binary.push_back(1);
+        n--;
+    }
+    binary.push_back(0);
 
-  //    for(auto i = binary.begin(); i!= binary.end() ; ++i){
-  //        std::cout << *i;
-  //    }
-  return binary;
+    //    for(auto i = binary.begin(); i!= binary.end() ; ++i){
+    //        std::cout << *i;
+    //    }
+    return binary;
 }
 
 std::vector<int> ToGamma(int n){
 
-  // Gamma = A*B
+    // Gamma = A*B
 
-  ToBinary(n);
-  int BinarySize = PublicBinary.size();
+    ToBinary(n);
+    int BinarySize = PublicBinary.size();
 
-  std::vector<int> A = ToUnary(BinarySize);
-  std::vector<int> B = PublicBinary;
-  // Le quitamos el bit significativo
-  B.erase(B.begin());
+    std::vector<int> A = ToUnary(BinarySize);
+    std::vector<int> B = PublicBinary;
+    // Le quitamos el bit significativo
+    B.erase(B.begin());
 
-  std::vector<int> gamma = A;
-  gamma.insert(gamma.end(), B.begin(), B.end());
-  return gamma;
+    std::vector<int> gamma = A;
+    gamma.insert(gamma.end(), B.begin(), B.end());
+    return gamma;
 }
 
 std::vector<int> ToDelta(int n){
