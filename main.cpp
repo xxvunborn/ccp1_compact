@@ -126,21 +126,29 @@ int main() {
     // Leemos los parametros de la siguente manera
     // El primer valor es el largo del Arreglo A(Llamamos n el largo de A)
     // Los siguentes n valores son los valores del Arreglo A
-    
-    int n;
-    int temp;
+
+    int n=0;
+    int temp=0;
     std::vector<int> ArrayA;
+    std::vector<int> ArrayB;
 
     std::cin >> n;
-    while(n > -1){
+    while(n){
         std::cin >> temp;
         ArrayA.push_back(temp);
         n--;
     }
-    std::vector<int> gamma = ToGamma(2);
-    for(auto i = gamma.begin(); i!= gamma.end() ; ++i){
-        std::cout << *i;
+
+    std::cin >> n;
+    while(n){
+        std::cin >> temp;
+        ArrayB.push_back(temp);
+        n--;
     }
+//    std::vector<int> gamma = ToGamma(2);
+//    for(auto i = gamma.begin(); i!= gamma.end() ; ++i){
+//        std::cout << *i;
+//    }
 //     std::vector<int> delta = ToDelta(2);
 //     for(auto i = delta.begin(); i!= delta.end() ; ++i){
 //     std::cout << *i;
@@ -151,8 +159,6 @@ int main() {
 //  }
 //  std::cout<< "\n";
 //  std::cout<<DecodeGama(gamma);
-
-
 
   return 0;
 }
